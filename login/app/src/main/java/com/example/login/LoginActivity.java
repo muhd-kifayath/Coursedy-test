@@ -42,8 +42,8 @@ public class LoginActivity extends AppCompatActivity {
                     Boolean checkuserpass = DB.checkusernamepassword(user, pass);
                     if(checkuserpass){
                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                        startActivity(intent);
+                        Intent intent2 = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(intent2);
                     }
                     else{
                         Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
@@ -55,8 +55,8 @@ public class LoginActivity extends AppCompatActivity {
         signup1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                Intent intent3 = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent3);
             }
         });
     }
