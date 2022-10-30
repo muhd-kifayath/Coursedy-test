@@ -6,11 +6,15 @@
     <string name="sign_out">Sign out</string>
     <string name="name">Name</string>
     <string name="email">Email id</string>
-    <string name="add_course_text">Add new course/activity</string>
-    <string name="course_code">Course Code (Leave Blank for Activity)</string>
+    <string name="add_course_activity_text">Add new course/activity</string>
+    <string name="add_course_text">Add new course</string>
+    <string name="add_activity_text">Add new activity</string>
+    <string name="course_code">Course Code</string>
     <string name="course_code_text">Enter Course Code</string>
-    <string name="course_name">Course/Activity Name</string>
-    <string name="course_name_text">Enter Course/Activity Name</string>
+    <string name="course_name">Course Name</string>
+    <string name="activity_name">Activity Name</string>
+    <string name="course_name_text">Enter Course Name</string>
+    <string name="activity_name_text">Enter Activity Name</string>
     <string name="add">Add</string>
     <string name="profile">Profile</string>
     <string name="home">Home</string>
@@ -19,4 +23,6 @@
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
     <string name="logout">Logout</string>
     <string name="logout_confirmation">Do you want to Logout?</string>
+    <string name="activity">Activity</string>
+    <string name="course">Course</string>
 </resources>
