@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "13691477763",
+    "project_id": "coursedy-1666597182815",
+    "storage_bucket": "coursedy-1666597182815.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13691477763:android:e447072cecc1af21bd5336",
+        "android_client_info": {
+          "package_name": "mk.tr.coursedy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "13691477763-rhdnjs7pfpr4nshqkumcqhl9g24ng38a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mk.tr.coursedy",
+            "certificate_hash": "1e365e516a060372bd8e44cf0b9f10e5f7615e43"
+          }
+        },
+        {
+          "client_id": "13691477763-heeuh88n1urgk36i6bblufdhr4favq1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfD7GyBVQUnt_7PaL6ZNQcgmGuADrytKE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "13691477763-6am67tc0eh89s3h7aijlqksivg25gc7b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

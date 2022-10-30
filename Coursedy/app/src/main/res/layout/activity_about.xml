@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primarybg"
+    tools:context=".AboutActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill">
+
+        <include layout="@layout/actionbar"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/about"
+            android:textSize="36sp"/>
+
+    </RelativeLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:backgroundTint="@color/primarybg_whitened"
+        app:fabAlignmentMode="center"
+        app:fabCradleMargin="8sp"
+        app:fabCradleRoundedCornerRadius="30sp"
+        app:fabCradleVerticalOffset="2sp"
+        app:hideOnScroll="true">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20sp"
+            android:background="@drawable/transparent_background"
+            app:itemIconTint="@color/bottom_item_bg"
+            app:itemTextColor="@color/bottom_item_bg"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/main_menu" />
+
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:backgroundTint="@color/lightblue"
+        android:contentDescription="@string/add"
+        android:src="@drawable/ic_add"
+        app:layout_anchor="@id/bottomAppBar"
+        app:maxImageSize="45sp"
+        app:tint="@color/white"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
