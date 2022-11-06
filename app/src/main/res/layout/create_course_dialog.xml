@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="30sp">
-        
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -63,7 +63,9 @@
                 android:paddingHorizontal="15sp"
                 android:paddingVertical="5sp"
                 android:textColorHint="#312C3A"
-                android:textSize="22sp"/>
+                android:textSize="22sp"
+                android:inputType="textCapCharacters"
+                android:maxLength="7"/>
 
             <TextView
                 android:id="@+id/course_name_text"
@@ -87,12 +89,12 @@
                 android:layout_marginTop="5sp"
                 android:background="@drawable/edittextbg"
                 android:hint="@string/course_name_text"
-                android:inputType="text"
                 android:minHeight="48sp"
                 android:paddingHorizontal="15sp"
                 android:paddingVertical="5sp"
                 android:textColorHint="#312C3A"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:inputType="textCapWords"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/addbtn"
@@ -111,7 +113,7 @@
                 app:cornerRadius="12sp"/>
 
         </RelativeLayout>
-        
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

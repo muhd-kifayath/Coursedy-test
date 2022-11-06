@@ -37,19 +37,14 @@ public class ProfileActivity extends AppCompatActivity implements BottomNavigati
     Dialog log_out;
     boolean doubleBackToExitPressedOnce = false;
 
+    AddCourse addCourse;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         add_course = findViewById(R.id.add_course);
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav_view);
-
-        add_course.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openNewChoice();
-            }
-        });
 
         new_choice = new Dialog(this);
         new_choice.setCanceledOnTouchOutside(false);
@@ -60,6 +55,9 @@ public class ProfileActivity extends AppCompatActivity implements BottomNavigati
         new_activity = new Dialog(this);
         new_activity.setCanceledOnTouchOutside(false);
 
+        addCourse = new AddCourse(new_choice, new_course, new_activity, ProfileActivity.this);
+
+        add_course.setOnClickListener(view -> addCourse.openNewChoice());
 
         log_out = new Dialog(this);
         log_out.setCanceledOnTouchOutside(false);
@@ -73,121 +71,6 @@ public class ProfileActivity extends AppCompatActivity implements BottomNavigati
             Log.getStackTraceString(e);
         }
 
-    }
-
-    public void openNewChoice() {
-        new_choice.setContentView(R.layout.courseactivity_option_dialog);
-        new_choice.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-        ImageView close = new_choice.findViewById(R.id.close);
-        MaterialButton course_new = new_choice.findViewById(R.id.add_course_nav);
-        MaterialButton activity_new = new_choice.findViewById(R.id.add_activity_nav);
-        new_choice.show();
-
-        course_new.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new_choice.dismiss();
-                openNewCourse();
-            }
-        });
-
-        activity_new.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new_choice.dismiss();
-                openNewActivity();
-            }
-        });
-
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new_choice.dismiss();
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                overridePendingTransition(0, 0);
-            }
-        });
-
-    }
-
-    public void openNewCourse() {
-        new_course.setContentView(R.layout.create_course_dialog);
-        new_course.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-        EditText course_code = new_course.findViewById(R.id.course_code);
-        EditText course_name = new_course.findViewById(R.id.course_name);
-        ImageView close = new_course.findViewById(R.id.close);
-        MaterialButton add = new_course.findViewById(R.id.addbtn);
-        new_course.show();
-
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new_course.dismiss();
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                overridePendingTransition(0, 0);
-            }
-        });
-
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String coursecode = course_code.getText().toString();
-                String coursename = course_name.getText().toString();
-                if(coursecode == null || coursecode.isEmpty()){
-                    return;
-                }
-                Course course = new Course();
-                course.setCode(coursecode);
-                course.setName(coursename);
-                course.setTimestamp(Timestamp.now());
-                addCourseToFirebase(course);
-
-                new_course.dismiss();
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                overridePendingTransition(0, 0);
-            }
-
-            private void addCourseToFirebase(Course course) {
-
-            }
-
-        });
-    }
-
-    public void openNewActivity() {
-        new_activity.setContentView(R.layout.create_activity_dialog);
-        new_activity.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-        EditText activity_name = new_activity.findViewById(R.id.course_code);
-        ImageView close = new_activity.findViewById(R.id.close);
-        MaterialButton add = new_activity.findViewById(R.id.addbtn);
-        new_activity.show();
-
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new_activity.dismiss();
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                overridePendingTransition(0, 0);
-            }
-        });
-
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String activityname = activity_name.getText().toString();
-                new_activity.dismiss();
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                overridePendingTransition(0, 0);
-            }
-
-            private void addCourseToFirebase(Course course) {
-
-            }
-
-        });
     }
 
     private void openlogoutdialog(){

@@ -23,6 +23,8 @@
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
     <string name="logout">Logout</string>
     <string name="logout_confirmation">Do you want to Logout?</string>
-    <string name="activity">Activity</string>
+    <string name="CActivity">Activity</string>
     <string name="course">Course</string>
+    <string name="complete_text">0/7 Completed</string>
+    <string name="pending">Pending</string>
 </resources>
