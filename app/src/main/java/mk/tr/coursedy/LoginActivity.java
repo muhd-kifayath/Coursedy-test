@@ -146,7 +146,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     void navigateToHome(){
-        finish();
         startActivity(new Intent(LoginActivity.this, HomeActivity.class));
     }
 }

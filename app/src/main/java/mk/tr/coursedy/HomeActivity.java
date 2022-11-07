@@ -13,24 +13,33 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+
+    RecyclerView home_recycler;
+    TextView welcome_message;
 
     //Create/Add Course
     FloatingActionButton add_course;
     Dialog new_choice;
     Dialog new_course;
     Dialog new_activity;
+
+    FirebaseAuth mAuth;
+    FirebaseUser user;
 
     //Bottom Navigation
     BottomNavigationView bottomNavigationView;
@@ -45,7 +54,9 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_home);
 
         add_course = findViewById(R.id.add_course);
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav_view);
+        bottomNavigationView = findViewById(R.id.bottom_nav_view);
+        home_recycler = findViewById(R.id.home_recycler);
+        welcome_message = findViewById(R.id.welcome_message);
 
         new_choice = new Dialog(this);
         new_choice.setCanceledOnTouchOutside(false);
@@ -55,6 +66,15 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
         new_activity = new Dialog(this);
         new_activity.setCanceledOnTouchOutside(false);
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+
+        if(user != null) {
+            String[] name = user.getDisplayName().split(" [0-9]{2}[A-Z]{3}[0-9]{4}");
+            String hello_message = "Hello, " + name[0];
+            welcome_message.setText(hello_message);
+        }
 
         addCourse = new AddCourse(new_choice, new_course, new_activity, HomeActivity.this);
 

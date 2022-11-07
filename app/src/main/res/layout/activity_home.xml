@@ -11,16 +11,29 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="fill">
+        android:layout_gravity="fill"
+        android:layout_margin="10sp">
 
         <include layout="@layout/actionbar"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/home"
-            android:textSize="36sp"/>
+            android:id="@+id/welcome_message"
+            android:text="@string/name"
+            android:textSize="28sp"
+            android:layout_marginHorizontal="10sp"
+            android:layout_below="@+id/topbar"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/home_recycler"
+            android:layout_marginTop="10sp"
+            android:layout_marginHorizontal="10sp"
+            android:layout_below="@+id/welcome_message"
+            />
+
 
     </RelativeLayout>
 
